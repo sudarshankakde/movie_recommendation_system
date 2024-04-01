@@ -69,7 +69,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = "movie_recommendation_system.wsgi.application"
+WSGI_APPLICATION = "movie_recommendation_system.wsgi.app"
 
 
 # Database
