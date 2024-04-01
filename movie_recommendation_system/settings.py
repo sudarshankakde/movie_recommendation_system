@@ -25,7 +25,7 @@ SECRET_KEY = "django-insecure-n!tt5^(gx=pd1jwc7s_ts2)lu5azuxkk@lqvnsdgmbhe-oe41d
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['.vercel.app']
 
 
 
@@ -75,12 +75,14 @@ WSGI_APPLICATION = "movie_recommendation_system.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
-    }
-}
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.sqlite3",
+#         "NAME": BASE_DIR / "db.sqlite3",
+#     }
+# }
+# settings.py
+DATABASES = {}
 
 
 # Password validation
