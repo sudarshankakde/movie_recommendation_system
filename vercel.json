@@ -1,13 +1,9 @@
 {
-    "functions": {
-        "api": {
-            "runtime": "python3.9",
-            "memory": 512
-        }
-    },
+  
     "builds": [{
         "src": "movie_recommendation_system/wsgi.py",
-        "use": "@ardnt/vercel-python-wsgi"
+        "use": "@ardnt/vercel-python-wsgi",
+        "config": { "maxLambdaSize": "15mb"}
     }],
     "routes": [
         {
