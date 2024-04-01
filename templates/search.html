@@ -1,5 +1,5 @@
 {% extends "baseLayout.html" %} {% block body %}
-<h3 class="text-7xl font-bold my-10 text-center font-serif opacity-90">Results For "{{query}}"</h3>
+<h3 class="md:text-7xl text-3xl font-bold my-10 text-center font-serif opacity-90">Results For "{{query}}"</h3>
 
 <div class="w-[100%] my-10 flex flex-row flex-wrap gap-y-5 gap-x-7 justify-center">
     {% for e in movies %} {% include "movieCard.html" with movie=e %} {% endfor %}
