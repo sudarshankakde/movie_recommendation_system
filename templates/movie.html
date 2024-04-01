@@ -1,0 +1,87 @@
+{% extends "baseLayout.html" %} {% block body %}
+<div
+  class="flex flex-row flex-wrap gap-y-5 gap-x-3 justify-center bg-[url('https://image.tmdb.org/t/p/w600_and_h900_bestv2{{movie.backdrop_path}}')] bg-no-repeat bg-cover  bg-center"
+>
+  <div
+    class="w-full flex md:flex-row flex-col gap-10 py-10 md:py-0 justify-center backdrop-blur-sm backdrop-brightness-50 text-gray-100 min-h-screen h-auto items-center"
+  >
+    <img
+      src="https://image.tmdb.org/t/p/w600_and_h900_bestv2{{movie.poster_path}}"
+      alt=""
+      class="w-72 h-[auto] object-fill rounded-2xl"
+    />
+    <div class="flex flex-col gap-2 justify-end md:max-w-[60%] max-w-[90%]">
+      <span class="text-3xl font-bold opacity-90"
+        >{{movie.original_title}}</span
+      >
+      <span class="text-md font-semibold opacity-80"
+        >{{movie.overview|truncatewords:75}}</span
+      >
+      <div class="my-4 flex flex-col gap-4">
+        <div class="flex flex-row flex-wrap gap-3">
+          {% for gernre in movie.genres %}
+          <span class="p-3 py-1 rounded-xl bg-teal-200 text-gray-800"
+            >{{gernre.name}}</span
+          >
+          {% endfor %}
+        </div>
+
+        <h4 class="uppercase font-semibold text-md font-semibold opacity-80">
+          production
+        </h4>
+        <div class="flex flex-row flex-wrap mx-4 gap-6">
+          {% for production_companie in movie.production_companies %}
+          <div class="flex flex-row justify-center items-center gap-2">
+            <img
+              src="https://image.tmdb.org/t/p/w600_and_h900_bestv2/{{production_companie.logo_path}}"
+              alt=""
+              class="w-8 h-8 object-fill rounded-full border bg-gray-200"
+            />
+            <span class="text-md font-bold opacity-80"
+              >{{production_companie.name}}</span
+            >
+          </div>
+          {% endfor %}
+        </div>
+        <div
+          class="flex md:flex-row flex-col justify-between md:items-center gap-y-2 items-baseline"
+        >
+          <span>
+            <span
+              class="uppercase font-semibold text-md font-semibold opacity-80"
+              >Avaible In -</span>
+            {% for language in movie.spoken_languages %}
+            {{language.english_name}} {% if forloop.last %}{%else%},{%endif%} {% endfor %}
+          </span>
+        
+          {% if movie.homepage %}
+          <a
+            href="{{movie.homepage}}"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="md:w-max w-full py-3 md:mt-0 mt-4 md:font-normal font-semibold justify-center px-5 rounded-xl md:py-2 bg-indigo-200 flex flex-row items-center gap-2 hover:bg-indigo-300 text-gray-800 font-semibold"
+            >Visit Homepage
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-arrow-right"
+              viewBox="0 0 16 16"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"
+              /></svg
+          ></a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<h3 class="text-7xl font-bold my-10 text-center font-serif opacity-90 ">Recomendation</h3>
+<div class="w-[100%] my-10 flex flex-row flex-wrap gap-y-5 gap-x-7 justify-center">
+  {% for e in similar %} {% include "movieCard.html" with movie=e %} {% endfor %}
+</div>
+{% endblock body %}

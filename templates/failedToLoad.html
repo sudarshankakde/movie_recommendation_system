@@ -1,0 +1,11 @@
+{% extends "baseLayout.html" %} {% block body %}
+<div class="min-h-screen w-[100%] bg-teal-900 flex flex-col justify-center items-center text-white text-center gap-3">
+    <h2 class="text-8xl font-bold">Failed To Load</h2>
+    <span class="text-lg">Reload Page...</span>
+</div>
+<script>
+    setTimeout(function () {
+        location.reload();
+    }, 10000);
+</script>
+{% endblock body %}
