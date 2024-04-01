@@ -2,7 +2,7 @@
     "builds": [{
         "src": "movie_recommendation_system/wsgi.py",
         "use": "@ardnt/vercel-python-wsgi",
-        "config": { "maxLambdaSize": "15mb","runtime":"python3.9","outputDirectory": "build"}
+        "config": { "maxLambdaSize": "15mb","runtime":"python3.9"}
         
     }],
     "routes": [
@@ -10,5 +10,6 @@
             "src": "/(.*)",
             "dest": "movie_recommendation_system/wsgi.py"
         }
-    ]
+    ],
+    "output": "build"  
 }
