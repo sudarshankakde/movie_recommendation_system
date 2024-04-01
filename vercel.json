@@ -7,8 +7,7 @@
     },
     "builds": [{
         "src": "movie_recommendation_system/wsgi.py",
-        "use": "@ardnt/vercel-python-wsgi",
-        "config": { "maxLambdaSize": "15mb"}
+        "use": "@ardnt/vercel-python-wsgi"
     }],
     "routes": [
         {
