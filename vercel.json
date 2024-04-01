@@ -1,13 +1,19 @@
 {
-    "builds": [{
-        "src": "movie_recommendation_system/wsgi.py",
-        "use": "@vercel/python",
-        "config": { "maxLambdaSize": "15mb"}
-        
-    }],
+    "functions": {
+        "api": {
+            "runtime": "python3.9"
+        }
+    },
+    "builds": [
+        {
+            "src": "movie_recommendation_system/wsgi.py",
+            "use": "@vercel/python"
+        }
+    ],
     "routes": [
         {
             "src": "/(.*)",
             "dest": "movie_recommendation_system/wsgi.py"
         }
-    ]}
+    ]
+}
