@@ -10,7 +10,7 @@
     "routes": [
       {
         "src": "/(.*)",
-        "dest": "movie_recommendation_system/wsgi.py"
+        "dest": "./movie_recommendation_system/wsgi.py"
       }
     ]
   }

@@ -15,4 +15,4 @@ os.environ.setdefault("DJANGO_SETTINGS_MODULE", "movie_recommendation_system.set
 
 application = get_wsgi_application()
 
-app = application
+app = get_wsgi_application()
